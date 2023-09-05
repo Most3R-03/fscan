@@ -3,14 +3,15 @@ package Plugins
 import (
 	"bytes"
 	"fmt"
-	"github.com/shadow1ng/fscan/common"
-	"golang.org/x/net/icmp"
 	"net"
 	"os/exec"
 	"runtime"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/shadow1ng/fscan/common"
+	"golang.org/x/net/icmp"
 )
 
 var (
@@ -20,6 +21,7 @@ var (
 	livewg     sync.WaitGroup
 )
 
+// 检查存活
 func CheckLive(hostslist []string, Ping bool) []string {
 	chanHosts := make(chan string, len(hostslist))
 	go func() {
